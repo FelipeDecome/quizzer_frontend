@@ -1,51 +1,60 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export default createGlobalStyle`
-  :root {
-    font-size: 62.5%;
-  }
+  ${props => {
+    const { pallete } = props.theme;
 
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: 0;
-    list-style: none;
-  }
+    return css`
+      :root {
+        font-size: 62.5%;
+      }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        outline: 0;
+        list-style: none;
+      }
 
-  body, #root {
-    height: 100vh;
-    max-width: 100vw;
-  }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-  body {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.6rem;
+      body,
+      #root {
+        height: 100vh;
+        max-width: 100vw;
+      }
 
-    background: ${props => props.theme.background};
-    color: ${props => props.theme.textDefault}
-  }
+      body {
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 1.6rem;
 
-  button {
-    border: 0;
-    background: transparent;
+        background: ${pallete.background};
+        color: ${pallete.textDefault};
+      }
 
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 700;
-  }
+      button {
+        border: 0;
+        background: transparent;
 
-  #root {
-    position: relative;
-    overflow: hidden;
-  }
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 700;
+      }
 
-  @media (max-width: 768px) {
-    font-size: 60%;
-  }
+      #root {
+        position: relative;
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 60%;
+      }
+    `;
+  }}
+
+
 
 `;
