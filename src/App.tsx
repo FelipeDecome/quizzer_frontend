@@ -1,13 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { AppProvider } from './hooks';
 
-import Header from './components/Header';
+import Routes from './Routes';
 
 const App: React.FC = () => {
   return (
-    <AppProvider>
-      <Header />
-    </AppProvider>
+    <Router>
+      <AppProvider>
+        <Routes />
+      </AppProvider>
+    </Router>
   );
 };
 
