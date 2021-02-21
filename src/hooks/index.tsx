@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/global';
 import { light } from '../styles/themes/light';
 import { dark } from '../styles/themes/dark';
+import AuthProvider from './auth';
 
 const themes = {
   light,
@@ -35,10 +36,12 @@ export const AppProvider: React.FC = ({ children }) => {
 
   return (
     <AppContext.Provider value={{ setTheme }}>
-      <ThemeProvider theme={themes[selectedTheme]}>
-        {children}
-        <GlobalStyle />
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider theme={themes[selectedTheme]}>
+          {children}
+          <GlobalStyle />
+        </ThemeProvider>
+      </AuthProvider>
     </AppContext.Provider>
   );
 };

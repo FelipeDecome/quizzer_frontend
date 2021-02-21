@@ -6,7 +6,7 @@ export default createGlobalStyle`
 
     return css`
       :root {
-        font-size: 62.5%;
+        font-size: 60%;
       }
 
       * {
@@ -24,33 +24,45 @@ export default createGlobalStyle`
 
       body,
       #root {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         height: 100vh;
         max-width: 100vw;
       }
 
       body {
-        font-family: 'Noto Sans TC', sans-serif;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
 
         background: ${pallete.background};
         color: ${pallete.textDefault};
+      }
+
+      body,
+      button,
+      input {
+        font-family: 'Noto Sans TC', sans-serif;
       }
 
       button {
         border: 0;
         background: transparent;
 
-        font-family: 'Noto Sans TC', sans-serif;
-        font-weight: 700;
+        cursor: pointer;
       }
 
       #root {
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
       }
 
-      @media (max-width: 768px) {
-        font-size: 60%;
+      @media (min-width: 768px) {
+        :root {
+          font-size: 62.5%;
+        }
+
+        body {
+          font-size: 1.6rem;
+        }
       }
     `;
   }}

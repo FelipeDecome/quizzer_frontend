@@ -1,11 +1,5 @@
 import { FlattenSimpleInterpolation } from 'styled-components';
-
-type TTransitionType = 'default' | 'slow';
-
-interface ITransitionObject {
-  property: string;
-  type?: TTransitionType;
-}
+import { TTransitionMixin } from './themes/utils/mixins';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -27,10 +21,9 @@ declare module 'styled-components' {
       complementsInColors: string;
       complementsBoxes: string;
     };
+    radius: string;
     boxesBorderRadius: FlattenSimpleInterpolation;
     boxesShadow: FlattenSimpleInterpolation;
-    transition: (
-      transitions: ITransitionObject[],
-    ) => FlattenSimpleInterpolation;
+    transition: TTransitionMixin;
   }
 }

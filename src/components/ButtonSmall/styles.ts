@@ -63,13 +63,12 @@ export const Container = styled.button<IContainerProps>`
       `};
 
       svg {
-        width: 1.6rem;
-        height: 1.6rem;
         margin-top: 1px; /* Alignment fix */
       }
 
       @media (min-width: 1120px) {
         height: 4.8rem;
+        font-size: 1.6rem;
         padding: 0 3.2rem;
       }
     `;
