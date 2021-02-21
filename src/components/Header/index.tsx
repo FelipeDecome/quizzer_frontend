@@ -1,172 +1,81 @@
-import React, { useCallback, useState } from 'react';
-import { FiArrowLeft, FiLogOut, FiUser, FiX } from 'react-icons/fi';
+import React, { MouseEvent, useCallback, useEffect, useState } from 'react';
 
 import logoSVG from '../../assets/images/logo.svg';
 import brandSVG from '../../assets/images/brand.svg';
-import avatarTest from '../../assets/images/avatar_test.jpg';
 
-import {
-  TNavState,
-  Container,
-  HeaderLeft,
-  HeaderRight,
-  Navigation,
-  LoggedUser,
-  UserNavigation,
-  HamburguerIcon,
-} from './styles';
-import ButtonSmall from '../ButtonSmall';
+import { Container, HeaderLeft, HeaderRight } from './styles';
+
+import GoBackButton from './components/GoBackButton';
+import HamburguerButton from './components/HamburguerIcon';
+import Navigation from './components/Navigation';
+import LoggedUser from './components/LoggedUser';
 
 interface INavigationHandlers {
-  [key: string]: React.Dispatch<React.SetStateAction<TNavState>>;
+  [key: string]: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Header: React.FC = () => {
-  const [navigationState, setNavigationState] = useState<TNavState>('closed');
-  const [userNavigationState, setUserNavigationState] = useState<TNavState>(
-    'closed',
-  );
+  const [hamburguerButtonActive, setHamburguerButtonActive] = useState(false);
+  const [navigationOpen, setNavigationOpen] = useState(false);
+  const [userNavigationOpen, setUserNavigationOpen] = useState(false);
 
-  const [user, setUser] = useState(false);
-
-  const handleNavigationsState = useCallback(
-    (target: keyof INavigationHandlers, state: TNavState) => {
+  const toggleNavigationsState = useCallback(
+    (target: keyof INavigationHandlers) => {
       const navigationHandlers: INavigationHandlers = {
-        navigation: setNavigationState,
-        userNavigation: setUserNavigationState,
+        navigation: setNavigationOpen,
+        userNavigation: setUserNavigationOpen,
       };
 
       /* Set all non selected navigations to close */
       Object.entries(navigationHandlers)
         .filter(([key]) => key !== target)
-        .map(([, setState]) => setState('closed'));
+        .map(([, setState]) => setState(false));
 
-      const newState = state === 'closed' ? 'open' : 'closed';
-
-      return navigationHandlers[target](newState);
+      return navigationHandlers[target](state => !state);
     },
     [],
   );
 
+  const handleNavigationBlur = useCallback(
+    (e: MouseEvent) => {
+      e.stopPropagation();
+
+      const { nodeName } = e.target as HTMLElement;
+
+      if (nodeName === 'HEADER' && navigationOpen) {
+        setNavigationOpen(false);
+      }
+    },
+    [navigationOpen],
+  );
+
+  useEffect(() => {
+    setHamburguerButtonActive(navigationOpen);
+  }, [navigationOpen]);
+
   return (
-    <Container>
+    <Container navigationState={navigationOpen} onClick={handleNavigationBlur}>
       <div>
         <HeaderLeft>
           <img id="logo" src={logoSVG} alt="Quizzes platform logo" />
 
           <img id="brand" src={brandSVG} alt="Quizzes platform brand name" />
 
-          <a href="/">
-            <FiArrowLeft />
-            Voltar
-          </a>
+          <GoBackButton />
         </HeaderLeft>
 
         <HeaderRight>
-          <Navigation state={navigationState} userLogged={!!user}>
-            <ul>
-              {user && (
-                <>
-                  <li>
-                    <a href="/">Criar um quiz</a>
-                  </li>
-                  <span />
-                </>
-              )}
-              <li>
-                <a href="/">Encontrar quizzes</a>
-              </li>
-            </ul>
+          <Navigation isCollapsed={navigationOpen} />
 
-            {!user && (
-              <div>
-                <ButtonSmall
-                  text="Entrar"
-                  icon="signin"
-                  iconLeft
-                  onClick={e => {
-                    e.preventDefault();
-                    setUser(true);
-                  }}
-                />
-                <ButtonSmall
-                  text="Criar conta"
-                  colorScheme="main"
-                  icon="signup"
-                  iconLeft
-                />
-              </div>
-            )}
-          </Navigation>
+          <LoggedUser
+            isUserNavigationOpen={userNavigationOpen}
+            handleToggleUserNavigation={toggleNavigationsState}
+          />
 
-          {user && (
-            <LoggedUser
-              type="button"
-              userNavigationState={userNavigationState}
-              onClick={() => {
-                return handleNavigationsState(
-                  'userNavigation',
-                  userNavigationState,
-                );
-              }}
-            >
-              <p>
-                Bem-vindo,
-                <a href="/">Felipe Decome</a>
-              </p>
-
-              <div>
-                <img src={avatarTest} alt="Felipe Decome" />
-
-                <UserNavigation state={userNavigationState}>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        return handleNavigationsState(
-                          'userNavigation',
-                          userNavigationState,
-                        );
-                      }}
-                    >
-                      <FiX />
-                    </button>
-                  </li>
-                  <li>
-                    <a href="/">
-                      <FiUser />
-                      Ver perfil
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      onClick={e => {
-                        e.preventDefault();
-                        setUser(false);
-                      }}
-                    >
-                      <FiLogOut />
-                      Sair
-                    </a>
-                  </li>
-                </UserNavigation>
-              </div>
-            </LoggedUser>
-          )}
-
-          <HamburguerIcon
-            onClick={() => {
-              return handleNavigationsState('navigation', navigationState);
-            }}
-            state={navigationState}
-          >
-            <ul>
-              <li />
-              <li />
-              <li />
-            </ul>
-          </HamburguerIcon>
+          <HamburguerButton
+            isActive={hamburguerButtonActive}
+            handleToggleNavigation={toggleNavigationsState}
+          />
         </HeaderRight>
       </div>
     </Container>

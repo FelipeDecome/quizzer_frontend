@@ -1,4 +1,6 @@
-import { css, DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
+import defaultValues from './utils/defaultValues';
+import mixins from './utils/mixins';
 
 export const dark: DefaultTheme = {
   pallete: {
@@ -18,24 +20,6 @@ export const dark: DefaultTheme = {
     complementsDefault: '#E8E8E8',
     complementsInColors: '#1B1B1B',
   },
-
-  boxesBorderRadius: css`
-    border-radius: 0.8rem;
-  `,
-  boxesShadow: css`
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  `,
-
-  transition: transitions => {
-    const parsedTransitions = transitions.map(
-      transition =>
-        `${transition.property} ${
-          transition.type === 'slow' ? '0.6s' : '0.2s'
-        }`,
-    );
-
-    return css`
-      transition: ${parsedTransitions.join(', ')};
-    `;
-  },
+  ...defaultValues,
+  ...mixins,
 };

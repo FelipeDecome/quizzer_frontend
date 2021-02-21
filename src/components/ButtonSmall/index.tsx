@@ -5,7 +5,7 @@ import { Container, TButtonType } from './styles';
 
 interface IButtonSmallProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   colorScheme?: TButtonType;
   icon?: keyof typeof icons;
   iconLeft?: boolean;
@@ -18,8 +18,8 @@ const icons = {
 };
 
 const ButtonSmall: React.FC<IButtonSmallProps> = ({
+  children,
   colorScheme,
-  text,
   icon,
   iconLeft,
   ...rest
@@ -36,7 +36,7 @@ const ButtonSmall: React.FC<IButtonSmallProps> = ({
       iconLeft={iconLeft}
       {...rest}
     >
-      {text}
+      {children}
       {Icon && <Icon />}
     </Container>
   );
