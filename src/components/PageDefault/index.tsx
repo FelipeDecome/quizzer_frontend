@@ -3,7 +3,7 @@ import Footer from '../Footer';
 
 import Header from '../Header';
 
-import { Container, Background, Content } from './styles';
+import { Container, Background } from './styles';
 
 const PageDefault: React.FC = ({ children }) => {
   return (
