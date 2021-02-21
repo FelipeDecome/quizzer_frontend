@@ -52,7 +52,7 @@ export default createGlobalStyle`
 
       #root {
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
       }
 
       @media (min-width: 768px) {

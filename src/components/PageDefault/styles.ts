@@ -7,7 +7,12 @@ export const Container = styled.div`
   justify-content: space-between;
 
   width: 100vw;
-  min-height: 100vh;
+  min-height: 81.2rem;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    min-height: 102.4rem;
+  }
 `;
 
 export const Background = styled.div`
