@@ -16,12 +16,19 @@ export const Greetings = styled.p`
         flex-direction: column;
         justify-content: center;
 
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: ${pallete.textComplement};
 
         span {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
           color: ${pallete.mainLight};
+        }
+      }
+
+      @media (min-width: 992px) {
+        font-size: 1.4rem;
+        span {
+          font-size: 1.6rem;
         }
       }
     `;
