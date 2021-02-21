@@ -52,6 +52,7 @@ export const Credits = styled.p`
           width: 12rem;
           height: 12rem;
           background: ${pallete.main};
+          opacity: 0;
           ${boxesShadow};
 
           ${transition([
@@ -67,6 +68,10 @@ export const Credits = styled.p`
               property: 'transform',
               type: 'slow',
             },
+            {
+              property: 'opacity',
+              type: 'slow',
+            },
           ])};
         }
 
@@ -77,6 +82,7 @@ export const Credits = styled.p`
             bottom: -5rem;
             border-radius: 4rem 0 4rem 4rem;
             transform: rotate(-135deg);
+            opacity: 1;
           }
         }
       }
