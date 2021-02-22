@@ -2,33 +2,30 @@ import React from 'react';
 import ButtonSmall from '../../components/ButtonSmall';
 import PageDefault from '../../components/PageDefault';
 
-import { Container, Content } from './styles';
+import { Title, Text } from './styles';
 
 import illustrationSVG from '../../assets/images/illustration.svg';
+import ContentWrapper from '../../components/ContentWrapper';
 
 const Landing: React.FC = () => {
   return (
-    <Container>
-      <PageDefault>
-        <Content>
-          <div>
-            <h1>Olá mundo!</h1>
+    <PageDefault>
+      <ContentWrapper
+        complement={<img src={illustrationSVG} alt="landing illustration" />}
+      >
+        <Title>Crie quizzes e desafie seus amigos</Title>
 
-            <p>
-              O que temos que ter sempre em mente é que a contínua expansão de
-              nossa atividade faz parte de um processo de gerenciamento das
-              condições inegavelmente apropriadas.
-            </p>
+        <Text>
+          O que temos que ter sempre em mente é que a contínua expansão de nossa
+          atividade faz parte de um processo de gerenciamento das condições
+          inegavelmente apropriadas.
+        </Text>
 
-            <ButtonSmall colorScheme="main">Lorem ipsum dolor</ButtonSmall>
-          </div>
+        <ButtonSmall colorScheme="main">Lorem ipsum dolor</ButtonSmall>
 
-          <div>
-            <img src={illustrationSVG} alt="landing illustration" />
-          </div>
-        </Content>
-      </PageDefault>
-    </Container>
+        <div />
+      </ContentWrapper>
+    </PageDefault>
   );
 };
 

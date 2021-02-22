@@ -22,6 +22,7 @@ export const Background = styled.div`
 
     return css`
       bottom: 0;
+      right: 0;
       position: fixed;
       width: 100%;
       height: 100%;
@@ -41,36 +42,6 @@ export const Background = styled.div`
 
         transform: rotate(-10deg);
         background: ${pallete.mainLight};
-      }
-    `;
-  }}
-`;
-
-export const Content = styled.main`
-  ${props => {
-    const { pallete, radius, boxesShadow } = props.theme;
-
-    return css`
-      width: 34rem;
-      height: 48rem;
-
-      display: flex;
-      align-items: center;
-
-      background: ${pallete.complementsBoxes};
-      border-radius: ${radius};
-      ${boxesShadow};
-
-      overflow: hidden;
-
-      @media (min-width: 768px) {
-        width: 56rem;
-        height: 68rem;
-      }
-
-      @media (min-width: 992px) {
-        width: 56rem;
-        height: 68rem;
       }
     `;
   }}

@@ -25,6 +25,7 @@ export const Container = styled.header<INavDefaultProps>`
         align-items: center;
 
         height: 6.4rem;
+        width: 90%;
         max-width: 112rem;
         padding: 0 2.4rem;
       }

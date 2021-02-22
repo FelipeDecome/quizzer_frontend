@@ -13,8 +13,6 @@ const PageDefault: React.FC = ({ children }) => {
 
       {children}
 
-      {/* <Content /> */}
-
       <Footer />
     </Container>
   );

@@ -1,9 +1,11 @@
 import React, {
   InputHTMLAttributes,
   useCallback,
+  useEffect,
   useRef,
   useState,
 } from 'react';
+import { useField } from '@unform/core';
 import { IconBaseProps } from 'react-icons/lib';
 
 import { Container } from './styles';
@@ -17,6 +19,8 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<IInputProps> = ({ name, icon: Icon, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const { fieldName, registerField } = useField(name);
+
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -26,6 +30,14 @@ const Input: React.FC<IInputProps> = ({ name, icon: Icon, ...rest }) => {
 
     setIsFilled(!!inputRef.current?.value);
   }, []);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
 
   return (
     <Container isFilled={isFilled} isFocused={isFocused}>

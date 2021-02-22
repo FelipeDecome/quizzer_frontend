@@ -26,8 +26,6 @@ export default createGlobalStyle`
       #root {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        height: 100vh;
-        max-width: 100vw;
       }
 
       body {
