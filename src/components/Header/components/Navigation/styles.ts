@@ -70,10 +70,15 @@ export const MenuList = styled.ul`
 `;
 
 export const MenuListItemSeparator = styled.li`
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  background: ${props => props.theme.pallete.complementsDefault};
+  display: none;
+
+  @media (min-width: 992px) {
+    display: initial;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: ${props => props.theme.pallete.complementsDefault};
+  }
 `;
 
 export const Container = styled.nav<IContainerProps>`
@@ -83,7 +88,7 @@ export const Container = styled.nav<IContainerProps>`
 
     return css`
       position: absolute;
-      top: 6rem;
+      top: 6.4rem;
       left: 0;
 
       display: flex;
@@ -114,8 +119,6 @@ export const Container = styled.nav<IContainerProps>`
       `};
 
       @media (min-width: 768px) {
-        top: 6.4rem;
-        height: calc(100vh - 6.4rem);
         width: 48rem;
 
         ${isCollapsed &&
