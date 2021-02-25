@@ -31,6 +31,8 @@ export const Content = styled.div`
   animation-name: ${AnimateOnLoadFromLeft};
   animation-duration: 1s;
   animation-fill-mode: forwards;
+
+  width: 100%;
 `;
 
 export const Complement = styled.div`
@@ -46,7 +48,7 @@ export const Container = styled.div`
     return css`
       width: 80%;
       height: 48rem;
-      padding: 0 10%;
+      padding: 0 16%;
 
       display: flex;
       align-items: center;

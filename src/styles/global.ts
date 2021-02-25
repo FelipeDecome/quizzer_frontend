@@ -30,6 +30,7 @@ export default createGlobalStyle`
 
       body {
         font-size: 1.4rem;
+        font-weight: 300;
 
         background: ${pallete.background};
         color: ${pallete.textDefault};

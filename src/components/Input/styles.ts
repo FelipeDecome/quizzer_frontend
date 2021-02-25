@@ -15,7 +15,6 @@ export const Container = styled.div<IContainerProps>`
       align-items: center;
       gap: 1.2rem;
 
-      width: 28rem;
       height: 3.6rem;
 
       border: 1px solid ${pallete.complementsDefault};
@@ -32,6 +31,8 @@ export const Container = styled.div<IContainerProps>`
       }
 
       input {
+        flex: 1;
+        height: 100%;
         font-size: 1.2rem;
         border: 0;
         background: none;
@@ -96,7 +97,6 @@ export const Container = styled.div<IContainerProps>`
       @media (min-width: 768px) {
         gap: 1.6rem;
 
-        width: 34rem;
         height: 4.6rem;
 
         input {
