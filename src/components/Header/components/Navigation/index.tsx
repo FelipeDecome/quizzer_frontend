@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../../../hooks/auth';
 import ButtonSmall from '../../../ButtonSmall';
 
@@ -17,7 +18,8 @@ interface INavigationProps {
 const Navigation: React.FC<INavigationProps> = ({ isCollapsed }) => {
   const [navigationCollapsed, setNavigationCollapsed] = useState(isCollapsed);
 
-  const { user, signIn } = useAuth();
+  const { user } = useAuth();
+  const history = useHistory();
 
   useEffect(() => {
     setNavigationCollapsed(isCollapsed);
@@ -43,7 +45,11 @@ const Navigation: React.FC<INavigationProps> = ({ isCollapsed }) => {
 
       {!user && (
         <ButtonsContainer>
-          <ButtonSmall icon="signin" iconLeft onClick={signIn}>
+          <ButtonSmall
+            icon="signin"
+            iconLeft
+            onClick={() => history.push('/signin')}
+          >
             Entrar
           </ButtonSmall>
 
