@@ -18,7 +18,7 @@ export const light: DefaultTheme = {
 
     complementsBoxes: '#FFFFFF',
     complementsDefault: '#E8E8E8',
-    complementsInColors: '#1B1B1B',
+    complementsInColors: '#363636',
   },
   ...defaultValues,
   ...mixins,

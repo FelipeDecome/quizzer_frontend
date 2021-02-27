@@ -24,7 +24,11 @@ const SignIn: React.FC = () => {
         complement={<img src={illustrationSVG} alt="Illustration" />}
       >
         <Form as={UnForm} ref={formRef} onSubmit={handleSubmit}>
-          <FormTitle>Login</FormTitle>
+          <FormTitle textAlign="left">
+            Acesse e comece a criar
+            {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+            <span> Quizzes!</span>
+          </FormTitle>
 
           <InputsContainer>
             <Input icon={FiMail} name="email" placeholder="Digite seu e-mail" />

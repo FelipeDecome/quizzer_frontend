@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import Input from '../../components/Input';
 
-interface IFormLinkProps {
+interface IFormTextProps {
   textAlign?: 'left' | 'center' | 'right';
 }
 
@@ -10,12 +10,30 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
-export const FormTitle = styled.form`
-  font-size: 4.8rem;
+export const FormTitle = styled.h1<IFormTextProps>`
+  font-size: 2.8rem;
   font-weight: 700;
 
-  margin-bottom: 4.8rem;
+  margin-bottom: 2.8rem;
   text-align: center;
+  color: ${props => props.theme.pallete.textTitles};
+
+  span {
+    color: ${props => props.theme.pallete.main};
+  }
+
+  @media (min-width: 768px) {
+    font-size: 3.6rem;
+    margin-bottom: 3.6rem;
+  }
+
+  @media (min-width: 992px) {
+    ${props =>
+      props.textAlign &&
+      css`
+        text-align: ${props.textAlign};
+      `};
+  }
 `;
 
 export const FormInput = styled(Input);
@@ -43,7 +61,7 @@ const LinkHoverAnimation = keyframes`
   }
 `;
 
-export const FormLink = styled.a<IFormLinkProps>`
+export const FormLink = styled.a<IFormTextProps>`
   ${props => {
     const { textAlign } = props;
     const { pallete, transition } = props.theme;

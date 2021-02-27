@@ -26,7 +26,11 @@ const SignUp: React.FC = () => {
         complement={<img src={illustrationSVG} alt="Illustration" />}
       >
         <Form as={UnForm} ref={formRef} onSubmit={handleSubmit}>
-          <FormTitle>Registro</FormTitle>
+          <FormTitle textAlign="right">
+            Registre-se para poder criar seus
+            {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
+            <span> Quizzes!</span>
+          </FormTitle>
 
           <InputsContainer>
             <Input
