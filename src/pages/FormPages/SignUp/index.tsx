@@ -27,9 +27,9 @@ const SignUp: React.FC = () => {
       >
         <Form as={UnForm} ref={formRef} onSubmit={handleSubmit}>
           <FormTitle textAlign="right">
-            Registre-se para poder criar seus
+            Registre-se para começar a
             {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-            <span> Quizzes!</span>
+            <span> Criar!</span>
           </FormTitle>
 
           <InputsContainer>

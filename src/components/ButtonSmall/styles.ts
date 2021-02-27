@@ -19,7 +19,7 @@ export const Container = styled.button<IContainerProps>`
       align-items: center;
       gap: 0.8rem;
 
-      height: 4rem;
+      height: 4.8rem;
       padding: 0 2.4rem;
 
       font-size: 1.4rem;
@@ -67,7 +67,6 @@ export const Container = styled.button<IContainerProps>`
       }
 
       @media (min-width: 1120px) {
-        height: 4.8rem;
         font-size: 1.6rem;
         padding: 0 3.2rem;
       }
