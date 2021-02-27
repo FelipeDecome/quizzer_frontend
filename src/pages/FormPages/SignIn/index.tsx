@@ -16,7 +16,7 @@ import { Form, FormTitle, InputsContainer, FormLink } from '../styles';
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(() => console.log('submited'), []);
+  const handleSubmit = useCallback(() => undefined, []);
 
   return (
     <PageDefault>
