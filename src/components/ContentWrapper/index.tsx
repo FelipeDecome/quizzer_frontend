@@ -10,9 +10,10 @@ interface IContentWrapperProps {
 const ContentWrapper: React.FC<IContentWrapperProps> = ({
   children,
   complement,
+  complementRight,
 }) => {
   return (
-    <Container>
+    <Container complementRight={complementRight}>
       <Content>{children}</Content>
 
       <Complement>{complement}</Complement>

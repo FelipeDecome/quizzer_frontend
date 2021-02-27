@@ -5,7 +5,6 @@ import { Container, TButtonType } from './styles';
 
 interface IButtonSmallProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text?: string;
   colorScheme?: TButtonType;
   icon?: keyof typeof icons;
   iconLeft?: boolean;

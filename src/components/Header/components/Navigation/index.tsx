@@ -48,12 +48,17 @@ const Navigation: React.FC<INavigationProps> = ({ isCollapsed }) => {
           <ButtonSmall
             icon="signin"
             iconLeft
-            onClick={() => history.push('/signin')}
+            onClick={() => history.push('/entrar')}
           >
             Entrar
           </ButtonSmall>
 
-          <ButtonSmall colorScheme="main" icon="signup" iconLeft>
+          <ButtonSmall
+            colorScheme="main"
+            icon="signup"
+            iconLeft
+            onClick={() => history.push('/registro')}
+          >
             Criar conta
           </ButtonSmall>
         </ButtonsContainer>

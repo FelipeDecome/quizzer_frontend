@@ -28,7 +28,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  animation-name: ${AnimateOnLoadFromLeft};
   animation-duration: 1s;
   animation-fill-mode: forwards;
 
@@ -36,13 +35,17 @@ export const Content = styled.div`
 `;
 
 export const Complement = styled.div`
-  animation-name: ${AnimateOnLoadFromRight};
   animation-duration: 1s;
   animation-fill-mode: forwards;
 `;
 
-export const Container = styled.div`
+interface IContainerProps {
+  complementRight?: boolean;
+}
+
+export const Container = styled.div<IContainerProps>`
   ${props => {
+    const { complementRight } = props;
     const { pallete, radius, boxesShadow } = props.theme;
 
     return css`
@@ -60,7 +63,16 @@ export const Container = styled.div`
 
       overflow: hidden;
 
+      ${Content} {
+        animation-name: ${!complementRight
+          ? AnimateOnLoadFromLeft
+          : AnimateOnLoadFromRight};
+      }
+
       ${Complement} {
+        animation-name: ${complementRight
+          ? AnimateOnLoadFromLeft
+          : AnimateOnLoadFromRight};
         display: none;
       }
 
@@ -75,6 +87,11 @@ export const Container = styled.div`
         max-width: 112rem;
         padding: 0 6.4rem;
         gap: 20rem;
+
+        ${complementRight &&
+        css`
+          flex-direction: row-reverse;
+        `};
 
         ${Complement} {
           display: initial;

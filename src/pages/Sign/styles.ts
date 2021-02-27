@@ -20,6 +20,17 @@ export const FormTitle = styled.form`
 
 export const FormInput = styled(Input);
 
+export const InputsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 3.2rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 3.6rem;
+  }
+`;
+
 const LinkHoverAnimation = keyframes`
   30% {
     transform: translateX(-.6rem);
@@ -44,7 +55,7 @@ export const FormLink = styled.a<IFormLinkProps>`
       `}
 
       margin-top: 0.8rem;
-      margin-bottom: 3.2rem;
+      cursor: pointer;
 
       span {
         color: ${pallete.mainLight};
