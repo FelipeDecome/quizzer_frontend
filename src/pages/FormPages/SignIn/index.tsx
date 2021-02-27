@@ -16,7 +16,7 @@ import { Form, FormTitle, InputsContainer, FormLink } from '../styles';
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(() => undefined, []);
+  const handleSubmit = useCallback(() => console.log('submited'), []);
 
   return (
     <PageDefault>
@@ -35,7 +35,7 @@ const SignIn: React.FC = () => {
 
             <Input icon={FiLock} name="email" placeholder="Digite sua senha" />
 
-            <FormLink href="/" textAlign="right">
+            <FormLink as={Link} to="/senha/esqueci" textAlign="right">
               Esqueci minha senha.
             </FormLink>
           </InputsContainer>

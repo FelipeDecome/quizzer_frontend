@@ -15,7 +15,7 @@ export const FormTitle = styled.h1<IFormTextProps>`
   font-weight: 700;
 
   margin-bottom: 2.8rem;
-  text-align: center;
+  /* text-align: center; */
   color: ${props => props.theme.pallete.textTitles};
 
   span {
@@ -36,16 +36,32 @@ export const FormTitle = styled.h1<IFormTextProps>`
   }
 `;
 
+export const FormText = styled.p<IFormTextProps>`
+  margin-bottom: 1.6rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 2.4rem;
+  }
+
+  @media (min-width: 992px) {
+    ${props =>
+      props.textAlign &&
+      css`
+        text-align: ${props.textAlign};
+      `};
+  }
+`;
+
 export const FormInput = styled(Input);
 
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 3.2rem;
+  margin-bottom: 4.8rem;
 
   @media (min-width: 768px) {
-    margin-bottom: 3.6rem;
+    margin-bottom: 6.4rem;
   }
 `;
 
