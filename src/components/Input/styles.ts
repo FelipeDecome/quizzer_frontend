@@ -87,7 +87,7 @@ const StyledInput = styled(Complement)<IInputProps>`
       transition: color 0.2s;
 
       ${styleAbove('SM')} {
-        padding-left: 0 1.6rem;
+        padding-left: 1.6rem;
       }
 
       &:focus,

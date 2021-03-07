@@ -12,9 +12,10 @@ import {
 
 interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
+  placeholder: string;
 }
 
-const Input: React.FC<IInputProps> = ({ name, ...rest }) => {
+const Input: React.FC<IInputProps> = ({ name, type, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -45,6 +46,7 @@ const Input: React.FC<IInputProps> = ({ name, ...rest }) => {
     <Container hasError={!!error} isFocused={isFocused} isFilled={isFilled}>
       <StyledInput
         name={name}
+        type={type || 'text'}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         isInvalid={!!error}
