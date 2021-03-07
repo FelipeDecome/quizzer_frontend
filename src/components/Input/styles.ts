@@ -1,6 +1,9 @@
 import { rgba } from 'polished';
 import styled, { css } from 'styled-components';
-import { FadeInAnimation } from '../../shared/styles/animations';
+import {
+  FadeInAnimation,
+  ShakeAnimation,
+} from '../../shared/styles/animations';
 import { Complement, Span } from '../../shared/styles/components/Fonts';
 import { styleAbove } from '../../shared/styles/mixins/breakpoints';
 
@@ -50,6 +53,9 @@ const Container = styled.div<IContainerProps>`
 
       ${hasError &&
       css`
+        animation-name: ${ShakeAnimation};
+        animation-duration: 0.4s;
+        animation-timing-function: ease-in;
         border-color: ${colors.error.light};
         box-shadow: none;
       `};
