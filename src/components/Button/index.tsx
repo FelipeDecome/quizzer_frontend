@@ -23,7 +23,7 @@ const Button: React.FC<IButtonProps> = ({
   icon: Icon,
   children,
 }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => setLoading(!!isLoading), [isLoading]);
 

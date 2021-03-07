@@ -1,4 +1,8 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
+import {
+  FadeInAnimation,
+  LoadingAnimation,
+} from '../../shared/styles/animations';
 import * as Fonts from '../../shared/styles/components/Fonts';
 import { styleAbove } from '../../shared/styles/mixins/breakpoints';
 
@@ -6,22 +10,6 @@ interface IContainerProps {
   fixedWidth?: boolean;
   isLoading?: boolean;
 }
-
-const LoadingAnimation = keyframes`
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const FadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-  `;
 
 const Container = styled.button<IContainerProps>`
   ${props => {
