@@ -9,4 +9,10 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 7.2rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+  }
 `;

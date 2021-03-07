@@ -12,7 +12,7 @@ export default createGlobalStyle`
     outline: 0;
     list-style: none;
 
-    transition: color 0.2s ease-out, background 0.2s ease-out;
+    /* transition: color 0.2s, background 0.2s; */
   }
 
   a {
@@ -22,19 +22,22 @@ export default createGlobalStyle`
 
   body,
   #root {
-    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {
     background: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.text.default};
   }
 
   body,
   button,
   input {
     font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  input::placeholder {
+    color: ${props => props.theme.colors.text.complement};
   }
 
   #root {
