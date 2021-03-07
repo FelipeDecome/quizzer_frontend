@@ -15,7 +15,7 @@ interface IFontMixinProps {
 const fontMixin = ({ size, height, weight, spacing }: IFontMixinProps) => css`
   ${size && `font-size: ${size}`};
   ${height && `line-height: ${height}`};
-  ${weight && `font-weigth`};
+  ${weight && `font-weight: ${weight}`};
   ${spacing && `letter-spacing: ${spacing}`};
 `;
 
@@ -72,4 +72,46 @@ const SubTitle = styled.h2`
   }
 `;
 
-export { Header, Paragraph, Title, SubTitle };
+const Complement = styled.span`
+  color: ${props => props.theme.colors.text.complement};
+  text-rendering: optimizeLegibility;
+
+  ${BaseFont};
+  ${fontMixin({
+    size: '1.2rem',
+    height: '1.6rem',
+    weight: '100',
+    spacing: '0.06em',
+  })};
+
+  ${styleAbove('SM')} {
+    ${fontMixin({
+      size: '1.4rem',
+      height: '2rem',
+      spacing: '0.04em',
+    })};
+  }
+`;
+
+const Span = styled.span`
+  color: ${props => props.theme.colors.text.complement};
+  text-rendering: optimizeLegibility;
+
+  ${BaseFont};
+  ${fontMixin({
+    size: '1rem',
+    height: '1.6rem',
+    weight: '100',
+    spacing: '0.06rem',
+  })};
+
+  ${styleAbove('SM')} {
+    ${fontMixin({
+      size: '1.2rem',
+      height: '2rem',
+      spacing: '0.04rem',
+    })};
+  }
+`;
+
+export { Header, Paragraph, Title, SubTitle, Complement, Span };
