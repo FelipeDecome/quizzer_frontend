@@ -24,6 +24,11 @@ export default createGlobalStyle`
   #root {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    width: 100vw;
+    height: 100vh;
+    min-height: 64rem;
+    overflow-x: hidden;
   }
 
   body {
