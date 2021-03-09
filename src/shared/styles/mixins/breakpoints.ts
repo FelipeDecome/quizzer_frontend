@@ -3,6 +3,7 @@ const breakpoints = {
   SM: 768,
   MD: 992,
   LG: 1200,
+  XL: 1440,
 };
 
 type TBreakpoint = keyof typeof breakpoints;
@@ -15,10 +16,10 @@ const styleAbove = (breakpoint: TBreakpoint): string => `
   @media (min-width: ${breakpoints[breakpoint]}px)
 `;
 
-const styleBeetween = (downTo: TBreakpoint, upTo: TBreakpoint): string => `
+const styleBetween = (downTo: TBreakpoint, upTo: TBreakpoint): string => `
   @media (min-width: ${breakpoints[downTo]}px) and (max-width: ${
   breakpoints[upTo] - 1
 }px)
 `;
 
-export { styleBelow, styleAbove, styleBeetween };
+export { styleBelow, styleAbove, styleBetween };
