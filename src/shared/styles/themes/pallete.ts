@@ -9,7 +9,7 @@ const pallete = {
   green: '#58C670',
   greenLight: '#B3E5BE',
 
-  white: '#F7F7F7',
+  white: '#FAFAFA',
   bluishWhite: '#F6F8FC',
 
   grayLighter: '#E8E8E8',
