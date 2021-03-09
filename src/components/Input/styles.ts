@@ -147,7 +147,7 @@ const ErrorIcon = styled.svg`
   }
 `;
 
-const ErrorMessage = styled(Span)`
+const ErrorMessage = styled(Complement)`
   display: none;
   position: absolute;
   top: -2.8rem;
@@ -156,7 +156,8 @@ const ErrorMessage = styled(Span)`
   padding: 0.6rem 2rem;
 
   animation-name: ${FadeInAnimation};
-  animation-duration: 0.2s;
+  animation-duration: 0.8s;
+
   color: ${props => props.theme.colors.text.inColors};
   background: ${props => props.theme.colors.error.default};
   border: 1px solid ${props => props.theme.colors.error.light};
