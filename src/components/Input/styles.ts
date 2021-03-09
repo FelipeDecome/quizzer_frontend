@@ -4,7 +4,7 @@ import {
   FadeInAnimation,
   ShakeAnimation,
 } from '../../shared/styles/animations';
-import { Complement, Span } from '../../shared/styles/components/Fonts';
+import { Complement } from '../../shared/styles/components/Fonts';
 import { styleAbove } from '../../shared/styles/mixins/breakpoints';
 
 interface IContainerProps {
