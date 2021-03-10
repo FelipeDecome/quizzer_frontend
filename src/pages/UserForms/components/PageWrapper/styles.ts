@@ -5,7 +5,11 @@ import {
   styleBelow,
 } from '../../../../shared/styles/mixins/breakpoints';
 
-const Container = styled.div`
+interface IContainerProps {
+  contentLeft: boolean;
+}
+
+const Container = styled.div<IContainerProps>`
   display: flex;
   align-items: center;
 
@@ -16,12 +20,9 @@ const Container = styled.div`
     justify-content: center;
   }
 
-  ${styleBetween('SM', 'LG')} {
-    position: relative;
-  }
-
   ${styleAbove('LG')} {
     margin: 0 auto;
+    ${props => props.contentLeft && `flex-direction: row-reverse;`};
   }
 
   ${styleAbove('XL')} {
@@ -43,19 +44,8 @@ const Complement = styled.div`
     object-position: bottom;
   }
 
-  ${styleBelow('SM')} {
+  ${styleBelow('LG')} {
     display: none;
-  }
-
-  ${styleBetween('SM', 'LG')} {
-    position: absolute;
-    top: 0;
-    height: 40%;
-
-    z-index: -1;
-    img {
-      width: 100vw;
-    }
   }
 
   ${styleAbove('LG')} {

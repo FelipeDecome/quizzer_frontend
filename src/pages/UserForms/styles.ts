@@ -20,6 +20,19 @@ const Form = styled.form`
 
 const FormTitle = styled(Font.Title)`
   text-align: center;
+  max-width: 26rem;
+
+  ${styleAbove('SM')} {
+    max-width: 34rem;
+  }
+`;
+
+const FormDescription = styled(Font.Paragraph)`
+  max-width: 26rem;
+
+  ${styleAbove('SM')} {
+    max-width: 34rem;
+  }
 `;
 
 const FormLink = styled(Font.Complement)<IFormLinkProps>`
@@ -56,4 +69,4 @@ const FormControllers = styled.div`
   }
 `;
 
-export { Form, FormTitle, FormLink, FormControllers };
+export { Form, FormTitle, FormDescription, FormLink, FormControllers };
