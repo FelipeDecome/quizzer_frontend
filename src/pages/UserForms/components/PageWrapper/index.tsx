@@ -1,20 +1,24 @@
 import React from 'react';
 
-import { Complement, Container, Content } from './styles';
+import { AnimationContainer, Complement, Container, Content } from './styles';
 
 interface IPageWrapperProps {
   complement: React.ReactNode;
-  contentLeft?: boolean;
+  contentRight?: boolean;
 }
 
 const PageWrapper: React.FC<IPageWrapperProps> = ({
   complement,
-  contentLeft,
+  contentRight,
   children,
 }) => {
   return (
-    <Container contentLeft={!!contentLeft}>
-      <Content>{children}</Content>
+    <Container contentRight={!!contentRight}>
+      <Content>
+        <AnimationContainer appearFrom={contentRight ? 'right' : 'left'}>
+          {children}
+        </AnimationContainer>
+      </Content>
       <Complement>{complement}</Complement>
     </Container>
   );

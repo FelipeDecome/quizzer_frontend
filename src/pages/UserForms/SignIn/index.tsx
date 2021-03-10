@@ -37,14 +37,14 @@ const SignIn: React.FC = () => {
             placeholder="Digite sua senha"
           />
 
-          <FormLink textAlign="right">Esqueci minha senha</FormLink>
+          <FormLink textalign="right">Esqueci minha senha</FormLink>
         </FormControllers>
 
         <FormControllers>
           <Button icon={FiLogIn} fixedWidth>
             Entrar
           </Button>
-          <FormLink as={Link} to="/registro" textAlign="center">
+          <FormLink as={Link} to="/registro" textalign="center">
             Não tem uma conta?
             {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
             <span> Crie sua conta</span>.

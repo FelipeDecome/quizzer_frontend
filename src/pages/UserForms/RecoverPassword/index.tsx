@@ -1,7 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form as UnForm } from '@unform/web';
-import { FiUserPlus } from 'react-icons/fi';
 
 import { Link } from 'react-router-dom';
 import Input from '../../../components/Input';
@@ -32,7 +31,7 @@ const RecoverPassword: React.FC = () => {
   return (
     <PageWrapper
       complement={<img src={formIllustration} alt="form illustration" />}
-      contentLeft
+      contentRight
     >
       <Form ref={formRef} as={UnForm} onSubmit={handleSubmit}>
         <FormTitle>Registre-se e comece a criar</FormTitle>
@@ -57,7 +56,7 @@ const RecoverPassword: React.FC = () => {
 
         <FormControllers>
           <Button fixedWidth>Alterar minha senha</Button>
-          <FormLink as={Link} to="/registro" textAlign="center">
+          <FormLink as={Link} to="/registro" textalign="center">
             Lembrou sua senha?
             {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
             <span> Volte e faça login</span>.

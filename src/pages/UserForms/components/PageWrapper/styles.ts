@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as AppearFrom from '../../../../shared/styles/animations/AppearFrom';
 import {
   styleAbove,
   styleBetween,
@@ -6,7 +7,11 @@ import {
 } from '../../../../shared/styles/mixins/breakpoints';
 
 interface IContainerProps {
-  contentLeft: boolean;
+  contentRight: boolean;
+}
+
+interface IAnimationContainer {
+  appearFrom: 'left' | 'right';
 }
 
 const Container = styled.div<IContainerProps>`
@@ -22,7 +27,7 @@ const Container = styled.div<IContainerProps>`
 
   ${styleAbove('LG')} {
     margin: 0 auto;
-    ${props => props.contentLeft && `flex-direction: row-reverse;`};
+    ${props => props.contentRight && `flex-direction: row-reverse;`};
   }
 
   ${styleAbove('XL')} {
@@ -34,6 +39,16 @@ const Container = styled.div<IContainerProps>`
 const Content = styled.div`
   ${styleBetween('LG', 'XL')} {
     padding: 12rem;
+  }
+`;
+
+const AnimationContainer = styled.div<IAnimationContainer>`
+  animation-name: ${AppearFrom.Up};
+  animation-duration: 1s;
+
+  ${styleAbove('LG')} {
+    animation-name: ${props =>
+      props.appearFrom === 'left' ? AppearFrom.Left : AppearFrom.Right};
   }
 `;
 
@@ -53,4 +68,4 @@ const Complement = styled.div`
   }
 `;
 
-export { Container, Content, Complement };
+export { Container, Content, AnimationContainer, Complement };

@@ -26,7 +26,7 @@ const SignUp: React.FC = () => {
   return (
     <PageWrapper
       complement={<img src={formIllustration} alt="form illustration" />}
-      contentLeft
+      contentRight
     >
       <Form ref={formRef} as={UnForm} onSubmit={handleSubmit}>
         <FormTitle>Registre-se e comece a criar</FormTitle>
@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
           <Button icon={FiUserPlus} fixedWidth>
             Criar conta
           </Button>
-          <FormLink as={Link} to="/entrar" textAlign="center">
+          <FormLink as={Link} to="/entrar" textalign="center">
             Já tem uma conta?
             {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
             <span> Faça login</span>.

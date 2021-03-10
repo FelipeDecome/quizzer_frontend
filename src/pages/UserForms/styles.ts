@@ -4,7 +4,7 @@ import * as Font from '../../shared/styles/components/Fonts';
 import { styleAbove } from '../../shared/styles/mixins/breakpoints';
 
 interface IFormLinkProps {
-  textAlign?: 'left' | 'center' | 'right';
+  textalign?: 'left' | 'center' | 'right';
 }
 
 const Form = styled.form`
@@ -36,7 +36,7 @@ const FormDescription = styled(Font.Paragraph)`
 `;
 
 const FormLink = styled(Font.Complement)<IFormLinkProps>`
-  text-align: ${props => props.textAlign || 'left'};
+  text-align: ${props => props.textalign || 'left'};
 
   transition: color 0.2s;
 
