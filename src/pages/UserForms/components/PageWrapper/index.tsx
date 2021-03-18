@@ -5,15 +5,20 @@ import { AnimationContainer, Complement, Container, Content } from './styles';
 interface IPageWrapperProps {
   complement: React.ReactNode;
   contentRight?: boolean;
+  animateOnModalOpen?: boolean;
 }
 
 const PageWrapper: React.FC<IPageWrapperProps> = ({
   complement,
   contentRight,
+  animateOnModalOpen,
   children,
 }) => {
   return (
-    <Container contentRight={!!contentRight}>
+    <Container
+      animateOnModalOpen={!!animateOnModalOpen}
+      contentRight={!!contentRight}
+    >
       <Content>
         <AnimationContainer appearFrom={contentRight ? 'right' : 'left'}>
           {children}

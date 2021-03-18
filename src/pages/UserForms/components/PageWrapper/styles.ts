@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as AppearFrom from '../../../../shared/styles/animations/AppearFrom';
 import {
   styleAbove,
@@ -8,6 +8,7 @@ import {
 
 interface IContainerProps {
   contentRight: boolean;
+  animateOnModalOpen: boolean;
 }
 
 interface IAnimationContainer {
@@ -34,6 +35,14 @@ const Container = styled.div<IContainerProps>`
     max-width: 1120px;
     gap: 16.8rem;
   }
+
+  transition: transform 0.4s ease-in-out;
+  ${props =>
+    props.animateOnModalOpen &&
+    css`
+      transform: scale(0.8);
+      transition-duration: 0.6s;
+    `};
 `;
 
 const Content = styled.div`
