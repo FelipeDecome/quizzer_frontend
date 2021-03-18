@@ -1,0 +1,61 @@
+[
+  {
+    "header": "Esqueceu sua senha!",
+    "description": {
+      "text": "Informe seu email para que possamos enviar as instruções para criar uma nova senha."
+    },
+    "input": true,
+    "buttonText": "Recuperar minha senha",
+    "helperMessage": {
+      "text": "Entrou aqui por engano?",
+      "link": "Volte e faça login",
+      "complement": "."
+    }
+  },
+
+  {
+    "header": "Um link foi enviado ao seu email!",
+    "description": {
+        "text": "Enviamos um link para seu email com o link e instruções para redefinir sua senha."
+      },
+    "input": false,
+    "buttonParagraph": "Não encontrou nosso email? Reenvie o email.",
+    "buttonText": "Reenviar email",
+    "helperMessage": {
+      "text": "Não funcionou?",
+      "link": "Tente outro email",
+      "complement": "."
+    }
+  },
+
+  {
+    "header": "O link foi reenviado!",
+    "description": {
+      "text": "Não conseguiu encontrar? Verifique a caixa de span de seu email, ou",
+      "highlight": "verifique se o email está correto",
+      "complement": "."
+    },
+    "input": true,
+    "buttonText": "Reenviar email",
+    "helperMessage": {
+      "text": "Ainda com problemas?",
+      "link": "Preciso de ajuda",
+      "complement": "."
+    }
+  },
+
+  {
+    "header": "O link foi reenviado!",
+    "description": {
+      "text": "Verificou a caixa de span de seu email e está  tudo certo com seu email?",
+      "highlight": "Tente recarregar a página e informar o email novamente",
+      "complement": "."
+    },
+    "input": false,
+    "helperMessage": {
+      "text": "Não quer mais alterar sua senha?",
+      "link": "Volte para o login",
+      "complement": "."
+    }
+  }
+]
