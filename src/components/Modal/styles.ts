@@ -46,8 +46,8 @@ const Container = styled.aside<IContainerProps>`
   justify-content: center;
   align-items: center;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   ${styleAbove('LG')} {
     background: ${props => rgba(props.theme.colors.main.lighter, 0.6)};
