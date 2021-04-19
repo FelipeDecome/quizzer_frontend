@@ -1,22 +1,9 @@
 import styled, { css } from 'styled-components';
 import { styleAbove } from '../../mixins/breakpoints';
+import { fontMixin } from '../../mixins/fontMixin';
 
 const BaseFont = css`
   font-family: 'Noto Sans TC', sans-serif;
-`;
-
-interface IFontMixinProps {
-  size?: string;
-  height?: string;
-  weight?: string;
-  spacing?: string;
-}
-
-const fontMixin = ({ size, height, weight, spacing }: IFontMixinProps) => css`
-  ${size && `font-size: ${size}`};
-  ${height && `line-height: ${height}`};
-  ${weight && `font-weight: ${weight}`};
-  ${spacing && `letter-spacing: ${spacing}`};
 `;
 
 const Header = styled.h1`
