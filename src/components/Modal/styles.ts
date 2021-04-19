@@ -125,6 +125,7 @@ const ButtonClose = styled.button`
 const LoadingIconContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 
   svg {
     animation: ${FadeInAnimation} 0.4s ease-in-out,

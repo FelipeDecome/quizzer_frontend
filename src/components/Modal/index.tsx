@@ -45,16 +45,16 @@ const Modal: React.FC<IModalProps> = ({
   return (
     <Container ref={modalRef} className={animationState} isOpen={isOpen}>
       <Wrapper>
-        <Content>
-          {!isLoading ? (
-            children
-          ) : (
-            <LoadingIconContainer>
-              <FiLoader />
-            </LoadingIconContainer>
-          )}
-        </Content>
-        <Complement>{complement}</Complement>
+        {!isLoading ? (
+          <>
+            <Content>{children}</Content>
+            <Complement>{complement}</Complement>
+          </>
+        ) : (
+          <LoadingIconContainer>
+            <FiLoader />
+          </LoadingIconContainer>
+        )}
 
         <ButtonClose onClick={handleModalState} type="button">
           <FiX />
