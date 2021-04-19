@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import GlobalStyle from '../styles/global';
-import { light } from '../styles/themes/light';
-import { dark } from '../styles/themes/dark';
+import GlobalStyle from '../shared/styles/global';
+import { light } from '../shared/styles/themes/light';
+import { dark } from '../shared/styles/themes/dark';
 import AuthProvider from './auth';
 
 const themes = {
@@ -14,12 +14,17 @@ const themes = {
 type TThemes = keyof typeof themes;
 
 interface IAppContextData {
+  setLoading: () => void;
+  isLoading: boolean;
   setTheme: () => void;
+  theme: DefaultTheme;
 }
 
 const AppContext = React.createContext({} as IAppContextData);
 
 export const AppProvider: React.FC = ({ children }) => {
+  const [appLoading, setAppLoading] = useState(false);
+
   const [selectedTheme, setSelectedTheme] = useState<TThemes>(
     () => (localStorage.getItem('@Quizzes:theme') as TThemes) || 'light',
   );
@@ -34,8 +39,17 @@ export const AppProvider: React.FC = ({ children }) => {
     });
   }, []);
 
+  const setLoading = useCallback(() => setAppLoading(state => !state), []);
+
   return (
-    <AppContext.Provider value={{ setTheme }}>
+    <AppContext.Provider
+      value={{
+        setLoading,
+        isLoading: appLoading,
+        setTheme,
+        theme: themes[selectedTheme],
+      }}
+    >
       <AuthProvider>
         <ThemeProvider theme={themes[selectedTheme]}>
           {children}

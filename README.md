@@ -1,10 +1,15 @@
 # quizzer_frontend
 
 # TODO
-- [x] Separar o footer em um novo arquivo
-- [x] Criar hook de autenticação de usuário.
-- [x] Reorganizar e Componentizar Header
-- [ ] Reescrever o código da landing page
-- [ ] Reescrever estilo global
-- [ ] Reescrever arquivo de temas e criar uma adaptação pro theme provider do styled components para adicionar estilos padrões do projeto;
-- [ ] Buscar dados da API
+- [x] Criar components de formulários
+- [x] Criar página de Login
+- [x] Testar e corrigir possíveis bugs de layout
+- [x] Criar as páginas SignUp, RecoverPassword e ResetPassword
+- [x] Criar component de modal
+- [x] Criar ForgotPasswordModal
+
+- [ ] Implementar a api na aplicação
+- [ ] Mudar implementação do modal
+- [ ] Resetar animação de erro do input quando a animação terminar
+- [ ] Extrair os handles dos formulários para arquivos separados
+- [ ] Implementar toast notification
