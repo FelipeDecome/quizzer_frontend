@@ -9,3 +9,7 @@
 - [x] Criar ForgotPasswordModal
 
 - [ ] Implementar a api na aplicação
+- [ ] Mudar implementação do modal
+- [ ] Resetar animação de erro do input quando a animação terminar
+- [ ] Extrair os handles dos formulários para arquivos separados
+- [ ] Implementar toast notification
